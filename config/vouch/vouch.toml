@@ -1,0 +1,169 @@
+#Language code (e.g., en_us, es_mx). Files in config/vouch/lang/
+language = "en_us"
+
+#============================================================
+#Vouch Authentication Mod Configuration
+#============================================================
+#
+#ENVIRONMENT VARIABLE SUPPORT
+#For sensitive values like database.password, you can use:
+#
+#  Method 1 - Explicit syntax:
+#    password = "${ENV:MY_DB_PASSWORD}"
+#    password = "${ENV:MY_DB_PASSWORD:default_value}"
+#
+#  Method 2 - Auto-override with VOUCH_ prefix:
+#    Set VOUCH_DATABASE_PASSWORD env var to override database.password
+#    Set VOUCH_DATABASE_USER env var to override database.user
+#
+#============================================================
+#
+#Branding - Customize how Vouch appears in messages
+[branding]
+	#Display name in messages
+	mod_name = "Vouch"
+	#Message prefix (supports color codes: &0-&f, &l, &o, etc.)
+	prefix = "&8[&6Vouch&8]&r "
+
+#Database configuration
+[database]
+	#Database type: h2 (default), sqlite, mysql, postgresql
+	type = "h2"
+	host = "localhost"
+	port = 3306
+	name = "vouch"
+	# H2 does not require credentials; keep the value out of the distributed
+	# file so Vouch does not warn about a plain-text database username.
+	user = "${ENV:VOUCH_DATABASE_USER:}"
+	#Supports ${ENV:VARIABLE} syntax for security
+	password = ""
+
+	#Connection pool settings (for MySQL/PostgreSQL)
+	[database.pool]
+		max_size = 10
+		min_idle = 2
+
+#Authentication settings
+[auth]
+	#Mode: password_only, 2fa_only, password_optional_2fa
+	mode = "password_optional_2fa"
+	#Seconds before kicking unauthenticated players
+	login_timeout = 60
+	#Failed login attempts before lockout
+	max_attempts = 5
+	#Lockout duration in seconds
+	lockout_duration = 300
+	password_min_length = 6
+	password_max_length = 64
+	#Auto-authenticate players with valid Mojang/Microsoft premium accounts.
+	#Requires server to be in online-mode=false. Players verified against Mojang API.
+	#If using BungeeCord/Velocity with IP forwarding, UUIDs are already forwarded and this still works.
+	premium_auto_login = true
+	#If true, premium players who have 2FA enabled must still verify their 2FA code.
+	#Recommended to keep enabled for maximum security.
+	premium_auto_login_require_2fa = false
+	#If true, ALL players are treated as offline by default (no encryption challenge).
+	#Players must run /vouch markAsOnline to opt into premium auto-login on their next join.
+	#Prevents 'Invalid session' errors for cracked clients using premium usernames.
+	#If false, any username that exists in the Mojang API will receive an encryption challenge.
+	premium_offline_by_default = false
+
+#Session management
+[session]
+	#Remember sessions across reconnects
+	persistence = true
+	#Session validity in seconds (default: 1 hour)
+	duration = 3600
+	bind_to_ip = true
+	bind_to_uuid = true
+	cleanup_interval = 300
+
+#Two-Factor Authentication (TOTP) settings
+[totp]
+	#Require 2FA for server operators
+	require_for_ops = false
+	#Name shown in authenticator apps
+	issuer = "Heartwood"
+	#Time window tolerance (±1 = accept codes from 30s ago/ahead)
+	window_size = 1
+	#TOTP time step in seconds (standard: 30)
+	time_step = 30
+
+#Cryptography settings (Argon2id password hashing)
+[crypto]
+
+	[crypto.argon2]
+		#Memory cost in KiB (default: 15360 = 15 MiB)
+		memory_cost = 15360
+		#Time cost / iterations
+		iterations = 2
+		parallelism = 1
+
+#User Interface settings - visual feedback for players
+[ui]
+
+	#Title screen messages
+	[ui.titles]
+		enabled = true
+		#Fade in duration (ticks, 20 = 1 second)
+		fade_in = 10
+		stay = 70
+		fade_out = 20
+		#Show error messages as titles (e.g., wrong password)
+		errors_enabled = false
+
+	#Action bar (above hotbar) messages
+	[ui.actionbar]
+		enabled = true
+
+	#Boss bar countdown display
+	[ui.bossbar]
+		enabled = true
+		#Colors: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
+		color = "YELLOW"
+		#Styles: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+		style = "PROGRESS"
+
+	#Pre-auth player effects
+	[ui.effects]
+		#0 = disabled, 1-255 = effect level
+		blindness_level = 1
+		slowness_level = 0
+		#Make player invisible to others during pre-auth
+		hide_from_others = true
+		hide_from_tab_list = true
+		freeze_position = true
+		freeze_camera = false
+
+	#Sound effects
+	[ui.sounds]
+		enabled = true
+		login_success = "minecraft:entity.player.levelup"
+		register_success = "minecraft:entity.experience_orb.pickup"
+		wrong_password = "minecraft:block.note_block.bass"
+		auth_timeout = "minecraft:entity.villager.no"
+		rate_limited = "minecraft:block.anvil.land"
+		volume = 1.0
+		pitch = 1.0
+
+	#Theme colors (used in messages). Use & color codes.
+	[ui.colors]
+		#Primary highlight color (default: &6 gold)
+		primary = "&6"
+		#Success messages (default: &a green)
+		success = "&a"
+		#Error messages (default: &c red)
+		error = "&c"
+		#Info messages (default: &e yellow)
+		info = "&e"
+		#Secondary/muted text (default: &7 gray)
+		muted = "&7"
+
+#Miscellaneous settings
+[misc]
+	#Show 'Processing...' during async operations
+	show_processing_message = true
+	#Clear chat before showing welcome message
+	clear_chat_on_join = false
+	#Empty lines before welcome message
+	welcome_message_padding = 2

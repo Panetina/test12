@@ -1,0 +1,92 @@
+# Heartwood's curated NeoOrigins roster.
+# Keep the selection small, readable and survival-balanced.
+disable_resource_bars = false
+disable_night_vision = false
+disable_enhanced_vision = false
+
+[origins]
+# Heartwood roster
+human = true
+merling = true
+avian = true
+arachnid = true
+caveborn = true
+tiny = true
+inchling = true
+sporeling = true
+frostborn = true
+dwarf = true
+
+# Disabled: teleportation, flight, Nether affinities, boss-like kits,
+# mob-ignore safety, heavy magic/combat kits, or redundant aquatic kits.
+abyssal = false
+air_mage = false
+asura = false
+automaton = false
+blazeling = false
+breeze = false
+cave_dragon = false
+cinderborn = false
+darkness_mage = false
+draconic = false
+earth_mage = false
+elytrian = false
+enderian = false
+enderite = false
+feline = false
+fire_mage = false
+forest_dragon = false
+golden_body = false
+golem = false
+gorgon = false
+gravity_mage = false
+hiveling = false
+iron_monk = false
+kraken = false
+monster_tamer = false
+necromancer = false
+phantom = false
+piglin = false
+qi_cultivator = false
+revenant = false
+sculkborn = false
+sea_dragon = false
+shulk = false
+siren = false
+skeleton = false
+slime = false
+stoneguard = false
+strider = false
+sword_immortal = false
+sylvan = false
+umbral = false
+vampire = false
+verdant = false
+voidwalker = false
+warden = false
+water_mage = false
+windwalker = false
+wraith = false
+
+[classes]
+# NeoOrigins skips the entire class picker when every class is disabled.
+class_warrior = false
+class_archer = false
+class_miner = false
+class_beastmaster = false
+class_explorer = false
+class_sentinel = false
+class_herbalist = false
+class_scout = false
+class_berserker = false
+class_titan = false
+class_rogue = false
+class_lumberjack = false
+class_blacksmith = false
+class_cook = false
+class_merchant = false
+class_cleric = false
+class_nitwit = false
+class_fisher = false
+class_mason = false
+class_paladin = false

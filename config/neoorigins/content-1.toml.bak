@@ -1,0 +1,19 @@
+# Heartwood Origins: passive-only content configuration.
+# No classes, active skills, evolution trees, or resource bars are shipped.
+disable_resource_bars = true
+disable_night_vision = false
+disable_enhanced_vision = false
+
+[origins]
+	human = true
+	merling = true
+	avian = true
+	arachnid = true
+	caveborn = true
+	tiny = true
+	inchling = true
+	sporeling = true
+	frostborn = true
+	dwarf = true
+
+[classes]
