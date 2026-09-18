@@ -1,0 +1,128 @@
+#MCG's Questborne Configuration
+[general]
+	#Maximum number of quests a player can have active at once
+	# Default: 5
+	# Range: 1 ~ 20
+	maxActiveQuests = 5
+	#Multiplier for Quest Points earned (1.0 = normal, 2.0 = double)
+	# Default: 1.0
+	# Range: 0.1 ~ 10.0
+	qpMultiplier = 1.0
+	#Multiplier for reputation earned (1.0 = normal, 2.0 = double)
+	# Default: 1.0
+	# Range: 0.1 ~ 10.0
+	repMultiplier = 1.0
+
+[npcs]
+	#Maximum distance (blocks) NPCs will wander from their home position
+	# Default: 10
+	# Range: 3 ~ 32
+	wanderRadius = 10
+	#If true, NPCs cannot be killed by players
+	npcInvulnerable = false
+	#Ticks until a killed NPC respawns at their campsite (24000 = 1 in-game day)
+	# Default: 24000
+	# Range: 1200 ~ 72000
+	respawnTicks = 24000
+
+[quests]
+	#Number of quests each NPC offers at a time
+	# Default: 3
+	# Range: 1 ~ 8
+	questsPerNpc = 3
+	#Multiplier for quest cooldowns (1.0 = normal, 0.5 = half cooldown)
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	cooldownMultiplier = 1.0
+	#If true, obtain quests consume items from player inventory on turn-in
+	consumeItemsOnTurnIn = true
+
+[shop]
+	#QP cost for a Bronze Crate
+	# Default: 10
+	# Range: 1 ~ 1000
+	bronzeCrateCost = 10
+	#QP cost for a Silver Crate
+	# Default: 25
+	# Range: 1 ~ 1000
+	silverCrateCost = 25
+	#QP cost for a Gold Crate
+	# Default: 70
+	# Range: 1 ~ 1000
+	goldCrateCost = 70
+
+[worldgen]
+	#Average distance (chunks) between campsites.
+	#Only affects chunks generated after the change; existing terrain keeps its campsites.
+	# Default: 32
+	# Range: 8 ~ 128
+	campsiteSpacing = 32
+	#Minimum distance (chunks) between campsites.
+	#Only affects chunks generated after the change; existing terrain keeps its campsites.
+	# Default: 12
+	# Range: 4 ~ 64
+	campsiteSeparation = 12
+	#Minimum number of NPCs per campsite.
+	#Applied when a campsite first generates, so existing camps are unaffected.
+	# Default: 1
+	# Range: 1 ~ 5
+	minNpcsPerCamp = 1
+	#Maximum number of NPCs per campsite.
+	#Applied when a campsite first generates, so existing camps are unaffected.
+	# Default: 3
+	# Range: 1 ~ 5
+	maxNpcsPerCamp = 3
+
+[rarity]
+	#Reward multiplier for Common quests.
+	#Applies to Quest Points, reputation and bonus XP together.
+	# Default: 1.0
+	# Range: 0.0 ~ 10.0
+	commonMultiplier = 1.0
+	#Reward multiplier for Uncommon quests.
+	# Default: 1.15
+	# Range: 0.0 ~ 10.0
+	uncommonMultiplier = 1.15
+	#Reward multiplier for Rare quests.
+	# Default: 1.3
+	# Range: 0.0 ~ 10.0
+	rareMultiplier = 1.3
+	#Reward multiplier for Epic quests.
+	#Defaults are deliberately gentle: rarer quests already carry higher base
+	#rewards, so steep multipliers double up and inflate late-game income.
+	# Default: 1.5
+	# Range: 0.0 ~ 10.0
+	epicMultiplier = 1.5
+
+[packs]
+	#Quest ids that will never be offered, e.g. "questborne:hunter/mob_slayer_wither".
+	#A quest already in a player's log still finishes normally; it is simply not handed out again.
+	#Run /qb validate to list what is loaded.
+	disabledQuests = []
+	#NPC type ids that offer nothing, e.g. "explorer".
+	#They still spawn and can be talked to, so camps stay populated — they just have
+	#no quests, no shop and cannot be hired. Use this to cut content without leaving
+	#empty campsites behind.
+	disabledNpcTypes = []
+
+[reputation]
+	#Reputation needed for Adventurer tier
+	# Default: 100
+	# Range: 1 ~ 1000
+	adventurerThreshold = 100
+	#Reputation needed for Veteran tier
+	# Default: 300
+	# Range: 1 ~ 5000
+	veteranThreshold = 300
+	#Reputation needed for Champion tier
+	# Default: 600
+	# Range: 1 ~ 10000
+	championThreshold = 600
+	#Reputation needed for Legend tier
+	# Default: 1000
+	# Range: 1 ~ 20000
+	legendThreshold = 1000
+	#Reputation tier required to hire an NPC (1=Adventurer, 2=Veteran, 3=Champion, 4=Legend)
+	# Default: 3
+	# Range: 1 ~ 4
+	hireTier = 3

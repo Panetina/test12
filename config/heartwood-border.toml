@@ -1,0 +1,11 @@
+#Starting Overworld world-border diameter in blocks.
+#Used when border data is first created and by /heartwood border reset.
+# Default: 50
+# Range: 1 ~ 59999968
+starting_border_size = 150
+#How many blocks are added to the shared world-border diameter
+#when an eligible vanilla advancement is completed.
+#Set to 0 to disable advancement-based border growth.
+# Default: 25
+# Range: 0 ~ 10000
+blocks_per_advancement = 25

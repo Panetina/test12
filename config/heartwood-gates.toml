@@ -1,0 +1,8 @@
+#Community offerings required to permanently unlock the Nether Gate.
+#Format: "namespace:item=amount". You may add, remove or reorder entries.
+#Restart the server after editing this file.
+nether_requirements = ["minecraft:obsidian=24", "minecraft:gold_ingot=24", "minecraft:iron_ingot=48", "numismaticoverhaul:silver_coin=64"]
+#Community offerings required to permanently unlock the End Gate.
+#Format: "namespace:item=amount". You may add, remove or reorder entries.
+#Restart the server after editing this file.
+end_requirements = ["minecraft:ender_eye=12", "minecraft:blaze_rod=24", "minecraft:amethyst_shard=24", "numismaticoverhaul:silver_coin=192"]
