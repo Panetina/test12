@@ -1,0 +1,31 @@
+{
+  "board": {
+    "updateFrequencySecs": 45,
+    "villageGenFrequency": 1.0,
+    "canBreak": true,
+    "globalBoardState": false
+  },
+  "bounty": {
+    "flatBonusTimePerBountyInSecs": 0,
+    "shouldHaveTimersAndExpire": true,
+    "fillerDifficultyModifierPercent": 0,
+    "allowDecreeMixing": true,
+    "reverseMatchingAlgorithm": true,
+    "initialCountPreference": { "min": 1, "max": 2 },
+    "fillerCountPreference": { "min": 1, "max": 2 },
+    "fillerCurrencyPool": "heartwood_numismatic_currency"
+  },
+  "client": {
+    "showCompletionToast": true
+  },
+  "dbg": {
+    "enabled": false
+  },
+  "general": {
+    "dataPathsToExclude": [
+      "bounty_pools/bountiful/example_pool",
+      "bounty_pools/*/another_example",
+      "bounty_decrees/other/*"
+    ]
+  }
+}

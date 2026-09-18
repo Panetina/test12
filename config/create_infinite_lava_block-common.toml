@@ -1,0 +1,5 @@
+[recipes]
+	#Set how many buckets of lava should be needed to craft the create_infinite_lava_block:lava_steel_bucket
+	# Default: 10000
+	# Range: > 1
+	lavaBucketLoops = 10000

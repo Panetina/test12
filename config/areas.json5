@@ -1,0 +1,21 @@
+{
+	// Random Village Names creates an unnamed Areas sign for each discovered village.
+	"giveUnnamedAreasRandomName": true,
+	"radiusAroundPlayerToCheckForSigns": 100,
+	"defaultAreaRadius": 60,
+	"sendChatMessages": false,
+	"showHUDMessages": true,
+	"showEnterMessage": true,
+	"enterPrefix": "Bun venit în ",
+	"enterSuffix": ".",
+	"showLeaveMessage": true,
+	"leavePrefix": "Ai părăsit ",
+	"leaveSuffix": ".",
+	"showHUDTextShadow": true,
+	"HUDMessageFadeDelayMs": 4000,
+	"HUDMessageHeightOffset": 10,
+	"HUD_FontSizeScaleModifier": 1.0,
+	"HUD_RGB_R": 196,
+	"HUD_RGB_G": 160,
+	"HUD_RGB_B": 86
+}
